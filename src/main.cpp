@@ -29,6 +29,7 @@ int main(int argc, char *argv[]) {
         std::cerr << "Could not initialise media" << std::endl;
         exit(EXIT_FAILURE);
     }
+    libvlc_media_parse(media);
 
     vlcMetaPrint("Artist", media, libvlc_meta_Artist);
     vlcMetaPrint("Title", media, libvlc_meta_Title);
