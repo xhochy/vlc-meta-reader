@@ -19,5 +19,5 @@ Dependencies
 
 * A working C++ compiler
 * VLC 2.0 or newer
-
 * Ubuntu packages: `build-essential cmake libvlc-dev`
+* Gentoo packages: `sys-devel/gcc media-video/vlc[taglib]`
