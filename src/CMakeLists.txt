@@ -1,5 +1,11 @@
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/config.h.in
+    ${CMAKE_CURRENT_BINARY_DIR}/config.h
+)
+
 include_directories(
     ${LIBVLC_INCLUDE_DIR}
+    ${CMAKE_CURRENT_BINARY_DIR}
 )
 add_executable( vlc_meta_reader_bin 
     main.cpp 

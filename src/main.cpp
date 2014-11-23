@@ -55,8 +55,9 @@ int main(int argc, char *argv[]) {
     vlcMetaPrint("Episode", media, libvlc_meta_Episode);
     vlcMetaPrint("ShowName", media, libvlc_meta_ShowName);
     vlcMetaPrint("Actors", media, libvlc_meta_Actors);
-    // TODO: Add compile check for the following
-    // libvlc_meta_AlbumArtist
+#ifdef HAVE_VLC_ALBUMARTIST
+    vlcMetaPrint("AlbumArtist", media, libvlc_meta_AlbumArtist);
+#endif
 
     libvlc_media_release(media);
     libvlc_release(vlcInstance);

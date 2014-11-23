@@ -20,5 +20,15 @@ if(LIBCPP_FOUND AND APPLE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
 endif()
 
+include(CheckCXXSourceCompiles)
+check_cxx_source_compiles("
+#include <vlc/libvlc.h>
+#include <vlc/libvlc_media.h>
+
+int main(int argc, char *argv[]) {
+    libvlc_meta_t meta = libvlc_meta_AlbumArtist;
+}"
+HAVE_VLC_ALBUMARTIST)
+
 add_subdirectory(src)
 
