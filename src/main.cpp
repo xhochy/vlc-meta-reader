@@ -31,6 +31,13 @@ int main(int argc, char *argv[]) {
     }
     libvlc_media_parse(media);
 
+    libvlc_time_t duration = libvlc_media_get_duration(media);
+    if (duration > 0) {
+        std::cout << "Duration: "
+                  << duration / 1000.0
+                  << "s" << std::endl;
+    }
+
     vlcMetaPrint("Artist", media, libvlc_meta_Artist);
     vlcMetaPrint("Title", media, libvlc_meta_Title);
     vlcMetaPrint("Genre", media, libvlc_meta_Genre);
