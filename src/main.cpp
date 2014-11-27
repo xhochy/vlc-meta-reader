@@ -66,6 +66,17 @@ int main(int argc, char *argv[]) {
     vlcMetaPrint("AlbumArtist", media, libvlc_meta_AlbumArtist);
 #endif
 
+    libvlc_media_track_t **tracks;
+    uint track_count;
+    if ((track_count = libvlc_media_tracks_get(media, &tracks)) > 0) {
+        for (uint i = 0; i < track_count; i++) {
+            std::cout << "Bitrate (track #" << (i + 1)
+                      << "): " << tracks[i]->i_bitrate
+                      << std::endl;
+        }
+        libvlc_media_tracks_release(tracks, track_count);
+    }
+
     libvlc_media_release(media);
     libvlc_release(vlcInstance);
 }
